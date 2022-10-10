@@ -6,17 +6,7 @@ import './Formulario.css'
 
     
 const Formulario = props => {
-
-    const times = [
-        'Escolha seu Time',
-        'Programação',
-        'Front-End',
-        'Data science',
-        'Devops',
-        'UX Design',
-        'Mobile',
-        'Inovação e Gestão'
-    ]
+    const times = props.times
 
     const [nome, setNome] = useState('')
     const [cargo, setCargo] = useState('')
@@ -25,9 +15,13 @@ const Formulario = props => {
 
     const aoSalvar = event =>{
         event.preventDefault()
+        
         // console.log('form foi submetido =>', nome,cargo,imagem,time );
         props.aoColaboradorCadastrado({nome,cargo,imagem,time})
-        
+        setNome('')
+        setCargo('')
+        setImagem('')
+        setTime('')
     }
 
     return (
